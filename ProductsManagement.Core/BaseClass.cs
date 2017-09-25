@@ -1,11 +1,10 @@
 ﻿namespace ProductsManagement.Core
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    /// <summary>
+    /// Base class to be inheritaded for all the entities
+    /// </summary>
     public class BaseClass
     {
         public int Id { get; set; }

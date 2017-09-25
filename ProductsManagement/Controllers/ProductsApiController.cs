@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using ProductsManagement.Core.Entities;
-using ProductsManagement.Services.Products;
-
-namespace ProductsManagement.Controllers
+﻿namespace ProductsManagement.Controllers
 {
+    using ProductsManagement.Core.Entities;
+    using ProductsManagement.Services.Products;
+    using System.Collections.Generic;
+    using System.Web.Http;
+
+    /// <summary>
+    /// Api controller for products
+    /// </summary>
     public class ProductsApiController : ApiController
     {
         private IProductsService _productsService;

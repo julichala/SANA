@@ -1,13 +1,12 @@
-﻿using System.Linq;
-using Ninject.Infrastructure.Language;
-
-namespace ProductsManagement.Controllers
+﻿namespace ProductsManagement.Controllers
 {
+    using Ninject.Infrastructure.Language;
     using ProductsManagement.Core.Entities;
     using ProductsManagement.Models;
     using ProductsManagement.Services.Products;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Mvc;
