@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Categories] (
-    [Id]           INT            NOT NULL,
+    [Id]           INT            IDENTITY (1, 1) NOT NULL,
     [AddDate]      DATETIME       NOT NULL,
     [ModifiedDate] DATETIME       NULL,
     [Ip]           NVARCHAR (20)  NULL,
@@ -8,6 +8,8 @@
     [Subcategory]  NVARCHAR (50)  NULL,
     CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 
 
 GO

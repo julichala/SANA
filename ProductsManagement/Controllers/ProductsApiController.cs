@@ -34,15 +34,5 @@ namespace ProductsManagement.Controllers
         public void Post([FromBody]string value)
         {
         }
-
-        // PUT: api/ProductsApi/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/ProductsApi/5
-        public void Delete(int id)
-        {
-        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Products] (
-    [Id]            INT            NOT NULL,
+    [Id]            INT            IDENTITY (1, 1) NOT NULL,
     [AddDate]       DATETIME       NOT NULL,
     [ModifiedDate]  DATETIME       NULL,
     [Ip]            NCHAR (20)     NULL,
@@ -8,4 +8,6 @@
     [Price]         DECIMAL (18)   NOT NULL,
     CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 

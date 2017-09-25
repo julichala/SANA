@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Orders] (
-    [Id]           INT            NOT NULL,
+    [Id]           INT            IDENTITY (1, 1) NOT NULL,
     [AddDate]      DATETIME       NOT NULL,
     [ModifiedDate] DATETIME       NULL,
     [IdCustomer]   INT            NOT NULL,
@@ -8,6 +8,8 @@
     CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Orders_Customers] FOREIGN KEY ([IdCustomer]) REFERENCES [dbo].[Customers] ([Id])
 );
+
+
 
 
 GO

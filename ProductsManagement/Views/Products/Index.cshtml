@@ -5,21 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Products List</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    Persistence Type: @Html.DropDownList("Persistence", null, htmlAttributes: new { onchange = "changePersistence();", @class = "form-control" })
+</p>
+<p>
+    <a id="A1" href="@Url.Action("Create")"
+       class="btn btn-success">
+        <span class="glyphicon glyphicon-cloud-upload"></span> Create New Product In DB
+    </a> 
+    <a id="A1" href="@Url.Action("CreateMemory")"
+            class="btn btn-success">
+        <span class="glyphicon glyphicon-folder-open"></span> Create New Product In Memory
+    </a>
+
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AddDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ip)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductNumber)
@@ -33,27 +37,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+        </tr>
+    }
 
 </table>
+<script>
+    function changePersistence() {
+        window.location.href = "{0}?persistType={1}".format("@Url.Action("Index")", $("#Persistence").val());
+    }
+    String.prototype.format = function () {
+        var txt = this;
+        for (var i = 0; i < arguments.length; i++) {
+            var exp = new RegExp('\\{' + (i) + '\\}', 'gm');
+            txt = txt.replace(exp, arguments[i]);
+        }
+        return txt;
+    }
+</script>

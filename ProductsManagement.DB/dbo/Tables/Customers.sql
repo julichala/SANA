@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Customers] (
-    [Id]           INT            NOT NULL,
+    [Id]           INT            IDENTITY (1, 1) NOT NULL,
     [AddDate]      DATETIME       NOT NULL,
     [ModifiedDate] DATETIME       NULL,
     [Ip]           NVARCHAR (20)  NULL,
@@ -9,6 +9,8 @@
     [Email]        NVARCHAR (200) NULL,
     CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 
 
 GO
