@@ -18,7 +18,7 @@
         /// Create a product in the repository
         /// </summary>
         /// <param name="product">Class product to create</param>
-        /// <returns>True if the produc was sucesfully created</returns>
+        /// <returns>True if the product was successfully created</returns>
         bool CreateProduct(Products product);
     }
 }

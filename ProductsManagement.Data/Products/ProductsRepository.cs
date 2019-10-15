@@ -13,7 +13,7 @@
 
         public ProductsRepository()
         {
-            this.ConnString = ParamHelper.getConnString();
+            this.ConnString = ParamHelper.GetConnString();
         }
 
         /// <inheritdoc />
@@ -55,8 +55,7 @@
         {
             using (var connection = new SqlConnection(ConnString))
             {
-                var command = new SqlCommand("addProduct", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                var command = new SqlCommand("addProduct", connection) {CommandType = CommandType.StoredProcedure};
 
                 command.Parameters.Add(ParamHelper.CreateParameter("pProductNumber", SqlDbType.Int, ParameterDirection.Input, product.ProductNumber));
                 command.Parameters.Add(ParamHelper.CreateParameter("pTitle", SqlDbType.NVarChar, ParameterDirection.Input, product.Title));
@@ -75,5 +74,6 @@
                 }
             }
         }
+        
     }
 }

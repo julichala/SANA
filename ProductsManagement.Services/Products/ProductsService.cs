@@ -6,7 +6,7 @@
     /// <inheritdoc />
     public class ProductsService : IProductsService
     {
-        private IProductsRepository _repository;
+        private readonly IProductsRepository _repository;
 
         /// <summary>
         /// Class constructor
@@ -22,7 +22,9 @@
         {
             try
             {
-                return _repository.GetProducts();
+                List<Core.Entities.Products> lstProducts = _repository.GetProducts();
+                lstProducts.AddRange(ProductInMemoryRepository.Instance.GetProducts());
+                return lstProducts;
             }
             catch (Exception e)
             {
@@ -36,7 +38,7 @@
         {
             try
             {
-                return _repository.CreateProduct(product);
+                return product.InMemory ? ProductInMemoryRepository.Instance.CreateProduct(product) : _repository.CreateProduct(product);
             }
             catch (Exception e)
             {

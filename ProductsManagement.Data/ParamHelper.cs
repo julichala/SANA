@@ -1,21 +1,22 @@
 ﻿namespace ProductsManagement.Data
 {
-    using System;
+    using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
-    using System.Configuration;
 
     public static class ParamHelper
     {
-        internal static string getConnString()
+        internal static string GetConnString()
         {
             return ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
-        internal static SqlParameter CreateParameter(string nombre, SqlDbType tipo, ParameterDirection direccion, object valor)
+        internal static SqlParameter CreateParameter(string name, SqlDbType type, ParameterDirection direction, object valor)
         {
-            SqlParameter parameter = new SqlParameter("@" + nombre, tipo);
-            parameter.Direction = direccion;
-            parameter.Value = valor;
+            var parameter = new SqlParameter("@" + name, type)
+            {
+                Direction = direction,
+                Value = valor
+            };
 
             return parameter;
         }

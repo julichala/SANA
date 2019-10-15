@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ParamHelper.cs" />
     <Compile Include="Products\IProductsRepository.cs" />
+    <Compile Include="Products\ProductInMemoryRepository.cs" />
     <Compile Include="Products\ProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
